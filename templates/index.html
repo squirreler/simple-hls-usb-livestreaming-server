@@ -5,6 +5,30 @@
         <title>Live Stream</title>
     </head>
     <body>
-        
+        <!-- From: https://github.com/video-dev/hls.js/blob/master/docs/API.md#getting-started-->
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+
+        <video id="video"></video>
+        <script>
+        if (Hls.isSupported()) {
+            var video = document.getElementById('video');
+            var hls = new Hls();
+            hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+            console.log('video and hls.js are now bound together !');
+            });
+            hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+            console.log(
+                'manifest loaded, found ' + data.levels.length + ' quality level',
+            );
+            });
+            hls.loadSource('http://127.0.0.1:5000/video-files/playlist.m3u8');
+            // bind them together
+            hls.attachMedia(video);
+            //Below line not from the docs
+            video.addEventListener("click", video.play);
+        }
+
+        </script>
+        <!-- ----------------------------------------------------------------------------------->
     </body>
 </html>
