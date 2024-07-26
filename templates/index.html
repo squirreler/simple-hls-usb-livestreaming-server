@@ -25,7 +25,8 @@
             // bind them together
             hls.attachMedia(video);
             //Below line not from the docs
-            video.play
+            video.muted = true
+            video.autoplay = true
             video.addEventListener("click", video.play);
         }
 
