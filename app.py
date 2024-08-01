@@ -16,3 +16,6 @@ def send_manifest():
 def send_video(tsfilename): 
     print(tsfilename)
     return send_from_directory("./video-files/", tsfilename)
+@app.route("/favicon.ico")
+def returnfavicon(): 
+    return send_from_directory("./", "favicon.ico")
