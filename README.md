@@ -3,6 +3,8 @@ High latency usb camera implementation of a hls live streaming server.
 
 #installation instructions
 
+These steps are only for debian based distributions, but with some common sense could be adapted for other linux distros. 
+
 1.) Clone the repository git clone
 
 2.) Create virtual environment: python3 -m venv env
@@ -20,6 +22,9 @@ do not have the string "v4l2" in the value.
 
 For example my camera path is "/dev/video2"
 
-4.) In the directory of the git repository, fun the command below: 
 
+
+5.) In the directory of the git repository, after editing the filepaths with the command below: 
+   
+gst-launch-1.0 v4l2src device="/dev/video0" ! videoconvert ! \x264enc tune=zerolatency ! mpegtsmux ! \hlssink playlist-location=/home/daniel/Cabinet/Projects/terrible-hls-usb-livestreaming-server/video-files/playlist.m3u8 location=/home/daniel/Cabinet/Projects/terrible-hls-usb-livestreaming-server/video-files/segment_%05d.ts target-duration=1 max-files=4
 
