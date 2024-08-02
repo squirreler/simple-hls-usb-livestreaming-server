@@ -22,9 +22,21 @@ do not have the string "v4l2" in the value.
 
 For example my camera path is "/dev/video2"
 
+4.) Type your relative filepath from your home to cloned repo directory in a place where you can easily copy and paste it. 
+   For example mine is /home/danie/Cabinet/Projects/terrible-hls-usb-livestreaming-server
+   Use it to create two other filepaths: 
+      One where you append "/video-files/playlist.m3u8". For example: /home/danie/Cabinet/Projects/terrible-hls-usb-livestreaming-server/video-files/playlist.m3u8
+      One where you append "/video-files/segment_%05d.ts". For example /home/daniel/Cabinet/Projects/terrible-hls-usb-livestreaming-server/video-files/segment_%05d.ts
 
-
-5.) In the directory of the git repository, after editing the filepaths with the command below: 
+5.) In the directory of the git repository, after editing the filepaths with the ones you generated in the previous step, run the command below: 
    
 gst-launch-1.0 v4l2src device="/dev/video0" ! videoconvert ! \x264enc tune=zerolatency ! mpegtsmux ! \hlssink playlist-location=/home/daniel/Cabinet/Projects/terrible-hls-usb-livestreaming-server/video-files/playlist.m3u8 location=/home/daniel/Cabinet/Projects/terrible-hls-usb-livestreaming-server/video-files/segment_%05d.ts target-duration=1 max-files=4
+
+Note: More commands will follow. If you are unable to use create multiple terminal tabs add an & after the command.
+
+6.) Open a new terminal tab, OR gracefully exit the previous commands grip on the terminal via ctrl+ d. 
+
+
+
+
 
