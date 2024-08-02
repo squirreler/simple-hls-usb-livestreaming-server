@@ -3,13 +3,17 @@
     <head>
         <meta charset = "UTF-8">
         <title>Live Stream</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}"></link>
     </head>
     <body>
-        <!-- From: https://github.com/video-dev/hls.js/blob/master/docs/API.md#getting-started-->
+        <!-- All except div and contents from: https://github.com/video-dev/hls.js/blob/master/docs/API.md#getting-started-->
         <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 
         <video id="video"></video>
-        <script src="{{ url_for('static', filename='video.js') }}"></script>
         <!-- ----------------------------------------------------------------------------------->
+        <script src="{{ url_for('static', filename='video.js') }}"></script>
+        <div id="pause-button">
+            <div id="pause-pillars">| |</div>
+        </div>
     </body>
 </html>

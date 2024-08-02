@@ -1,4 +1,5 @@
 let videoState = "nonfunctional"; 
+
 if (Hls.isSupported()) {
     var video = document.getElementById('video');
     var hls = new Hls();
@@ -17,20 +18,29 @@ if (Hls.isSupported()) {
     videoState = "playing"; 
     video.muted = true;
     video.autoplay = true;
+    hls.config.maxBufferLength = 1;
 }
+
 video.addEventListener("click", () => {
+    let pauseButton = document.getElementById('pause-button');
     switch (videoState) {
         case "playing": 
             video.pause();
             videoState = "paused";
+            pauseButton.style.visibility = "visible";
+            video.currentTime = video.duration - 1
             break;
         case "paused":
             video.play();
             videoState = "playing";
+            pauseButton.style.visibility = "hidden";
+            video.currentTime = video.duration - 1
             break;
         case "nonfunctional": 
             console.log("Video Broken");
     }
     
 });
-console.log("Hello Flask");
+
+
+
