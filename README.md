@@ -1,5 +1,11 @@
 # terrible-hls-usb-livestreaming-server
-High latency usb camera implementation of a hls live streaming server.
+High latency usb camera implementation of a hls live streaming server. 
+
+Should work on all relevant browsers on desktop and mobile execept the desktop version on Firefox. 
+
+The delay is 5-8 seconds. 
+
+I should also mention that a good portion of the javascript code is adapted from the hls.js docs. It is labeled as such.
 
 #installation instructions
 
