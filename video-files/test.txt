@@ -1,0 +1,2 @@
+This text file is here to make sure the video files folder is tracked by git. 
+It does not need to exist unless you need to push changes to main. 
