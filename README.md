@@ -50,7 +50,7 @@ Note: More commands will follow. If you are unable to use create multiple termin
 
 8.) Navigate to the directory of the repository. Enter the virtual environment with the following command: source env/bin/activate
 
-9.) Install Flask: pip install flask
+9.) Install Flask: pip install flask 
 
 10.) Run Flask: flask run
 
